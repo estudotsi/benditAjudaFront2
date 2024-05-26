@@ -1,44 +1,252 @@
-<nav class="navbar navbar-expand-xl navbar-dark bg-dark" aria-label="Sixth navbar example">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Expand at xl</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample06" aria-controls="navbarsExample06" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+     <!-- Navigation-->
+     <nav class="navbar navbar-light bg-light static-top">
+      <div class="container">
+          <a class="navbar-brand" href="#!">Bendita Ajuda</a>
+          <a class="btn btn-primary" href="#signup">Sign Up</a>
+      </div>
+  </nav>
+  <!-- Masthead-->
+  <header class="masthead">
+      <div class="container position-relative">
+          <div class="row justify-content-center">
+              <div class="col-xl-6">
+                  <div class="text-center text-white">
+                      <!-- Page heading-->
+                      <h1 class="mb-5">O profissional que precisa está aqui !</h1>
+                      <!-- Signup form-->
+                      <!-- * * * * * * * * * * * * * * *-->
+                      <!-- * * SB Forms Contact Form * *-->
+                      <!-- * * * * * * * * * * * * * * *-->
+                      <!-- This form is pre-integrated with SB Forms.-->
+                      <!-- To make this form functional, sign up at-->
+                      <!-- https://startbootstrap.com/solution/contact-forms-->
+                      <!-- to get an API token!-->
+                      <form class="form-subscribe" [formGroup]="formRepertorio" (ngSubmit)="pesuisarPrestador()">
+                          <!-- Email address input-->
+                          <div class="row">
+                              <div class="col">
+                                <ng-select
+                                [items]="servicos"
+                                bindLabel="nome"
+                                bindValue="id"
+                                [multiple]="false"
+                                placeholder="Selecionar servicos"
+                                clearAllText="Clear"
+                                formControlName="servicos">
+                              </ng-select>
+                              </div>
+                              <div class="col-auto"><button class="btn btn-primary btn-lg" id="submitButton" type="submit">Procurar</button></div>
+                          </div>
+                          <!-- Submit success message-->
+                          <!---->
+                          <!-- This is what your users will see when the form-->
+                          <!-- has successfully submitted-->
+                          <div class="d-none" id="submitSuccessMessage">
+                              <div class="text-center mb-3">
+                                  <div class="fw-bolder">Form submission successful!</div>
+                                  <p>To activate this form, sign up at</p>
+                                  <a class="text-white" href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                              </div>
+                          </div>
+                          <!-- Submit error message-->
+                          <!---->
+                          <!-- This is what your users will see when there is-->
+                          <!-- an error submitting the form-->
+                          <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </header>
 
-    <div class="collapse navbar-collapse" id="navbarsExample06">
-      <ul class="navbar-nav me-auto mb-2 mb-xl-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-      </ul>
-      <form role="search">
-        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-      </form>
+  <div class="mt-2">
+    <div class="d-style bgc-white btn btn-brc-tp btn-outline-green btn-h-outline-green btn-a-outline-green w-100 my-2 py-3 shadow-sm border-2" *ngFor="let item of prestadores">
+
+      <div class="row align-items-center">
+        <div class="col-12 col-md-4">
+          <h4 class="pt-3 text-170 text-600 text-primary-d1 letter-spacing">
+            Profissional: {{ item.nome }}
+          </h4>
+
+          <div class="text-secondary-d1 text-120">
+            <span class="ml-n15 align-text-bottom"></span><span class="text-180"></span>
+          </div>
+        </div>
+
+        <ul class="list-unstyled mb-0 col-12 col-md-4 text-dark-l1 text-90 text-left my-4 my-md-0">
+          <li>
+            <i class="fa fa-check text-success-m2 text-110 mr-2 mt-1"></i>
+              <span class="text-110">{{ item.endereco }}</span>
+          </li>
+        </ul>
+
+        <div class="col-12 col-md-2 text-center custom-buttons">
+          <a class="f-n-hover btn btn-info btn-raised px-4 py-25 w-75 text-600">Contato</a>
+        </div>
+      </div>
+
     </div>
   </div>
-</nav>
 
-<div class="">
-  <div class="p-5 text-center bg-body-tertiary">
-    <div class="container py-5">
-      <h1 class="text-body-emphasis">Full-width jumbotron</h1>
-      <p class="col-lg-8 mx-auto lead">
-        This takes the basic jumbotron above and makes its background edge-to-edge with a <code>.container</code> inside to align content. Similar to above, it's been recreated with built-in grid and utility classes.
-      </p>
-    </div>
-  </div>
-</div>
+  <!-- Icons Grid-->
+  <section class="features-icons bg-light text-center">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-4">
+                  <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                      <div class="features-icons-icon d-flex"><i class="bi-window m-auto text-primary"></i></div>
+                      <h3>Fully Responsive</h3>
+                      <p class="lead mb-0">This theme will look great on any device, no matter the size!</p>
+                  </div>
+              </div>
+              <div class="col-lg-4">
+                  <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                      <div class="features-icons-icon d-flex"><i class="bi-layers m-auto text-primary"></i></div>
+                      <h3>Bootstrap 5 Ready</h3>
+                      <p class="lead mb-0">Featuring the latest build of the new Bootstrap 5 framework!</p>
+                  </div>
+              </div>
+              <div class="col-lg-4">
+                  <div class="features-icons-item mx-auto mb-0 mb-lg-3">
+                      <div class="features-icons-icon d-flex"><i class="bi-terminal m-auto text-primary"></i></div>
+                      <h3>Easy to Use</h3>
+                      <p class="lead mb-0">Ready to use with your own content, or customize the source files!</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+  <!-- Image Showcases-->
+  <section class="showcase">
+      <div class="container-fluid p-0">
+          <div class="row g-0">
+              <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('../assets/img/bg-showcase-1.jpg')"></div>
+              <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                  <h2>Fully Responsive Design</h2>
+                  <p class="lead mb-0">When you use a theme created by Start Bootstrap, you know that the theme will look great on any device, whether it's a phone, tablet, or desktop the page will behave responsively!</p>
+              </div>
+          </div>
+          <div class="row g-0">
+              <div class="col-lg-6 text-white showcase-img" style="background-image: url('../assets/img/bg-showcase-2.jpg')"></div>
+              <div class="col-lg-6 my-auto showcase-text">
+                  <h2>Updated For Bootstrap 5</h2>
+                  <p class="lead mb-0">Newly improved, and full of great utility classes, Bootstrap 5 is leading the way in mobile responsive web development! All of the themes on Start Bootstrap are now using Bootstrap 5!</p>
+              </div>
+          </div>
+          <div class="row g-0">
+              <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('../assets/img/bg-showcase-3.jpg')"></div>
+              <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                  <h2>Easy to Use & Customize</h2>
+                  <p class="lead mb-0">Landing Page is just HTML and CSS with a splash of SCSS for users who demand some deeper customization options. Out of the box, just add your content and images, and your new landing page will be ready to go!</p>
+              </div>
+          </div>
+      </div>
+  </section>
+  <!-- Testimonials-->
+  <section class="testimonials text-center bg-light">
+      <div class="container">
+          <h2 class="mb-5">What people are saying...</h2>
+          <div class="row">
+              <div class="col-lg-4">
+                  <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                      <img class="img-fluid rounded-circle mb-3" src="../assets/img/testimonials-1.jpg" alt="..." />
+                      <h5>Margaret E.</h5>
+                      <p class="font-weight-light mb-0">"This is fantastic! Thanks so much guys!"</p>
+                  </div>
+              </div>
+              <div class="col-lg-4">
+                  <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                      <img class="img-fluid rounded-circle mb-3" src="../assets/img/testimonials-2.jpg" alt="..." />
+                      <h5>Fred S.</h5>
+                      <p class="font-weight-light mb-0">"Bootstrap is amazing. I've been using it to create lots of super nice landing pages."</p>
+                  </div>
+              </div>
+              <div class="col-lg-4">
+                  <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                      <img class="img-fluid rounded-circle mb-3" src="../assets/img/testimonials-3.jpg" alt="..." />
+                      <h5>Sarah W.</h5>
+                      <p class="font-weight-light mb-0">"Thanks so much for making these free resources available to us!"</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+  <!-- Call to Action-->
+  <section class="call-to-action text-white text-center" id="signup">
+      <div class="container position-relative">
+          <div class="row justify-content-center">
+              <div class="col-xl-6">
+                  <h2 class="mb-4">Ready to get started? Sign up now!</h2>
+                  <!-- Signup form-->
+                  <!-- * * * * * * * * * * * * * * *-->
+                  <!-- * * SB Forms Contact Form * *-->
+                  <!-- * * * * * * * * * * * * * * *-->
+                  <!-- This form is pre-integrated with SB Forms.-->
+                  <!-- To make this form functional, sign up at-->
+                  <!-- https://startbootstrap.com/solution/contact-forms-->
+                  <!-- to get an API token!-->
+                  <form class="form-subscribe" id="contactFormFooter" data-sb-form-api-token="API_TOKEN">
+                      <!-- Email address input-->
+                      <div class="row">
+                          <div class="col">
+                              <input class="form-control form-control-lg" id="emailAddressBelow" type="email" placeholder="Email Address" data-sb-validations="required,email" />
+                              <div class="invalid-feedback text-white" data-sb-feedback="emailAddressBelow:required">Email Address is required.</div>
+                              <div class="invalid-feedback text-white" data-sb-feedback="emailAddressBelow:email">Email Address Email is not valid.</div>
+                          </div>
+                          <div class="col-auto"><button class="btn btn-primary btn-lg disabled" id="submitButton" type="submit">Submit</button></div>
+                      </div>
+                      <!-- Submit success message-->
+                      <!---->
+                      <!-- This is what your users will see when the form-->
+                      <!-- has successfully submitted-->
+                      <div class="d-none" id="submitSuccessMessage">
+                          <div class="text-center mb-3">
+                              <div class="fw-bolder">Form submission successful!</div>
+                              <p>To activate this form, sign up at</p>
+                              <a class="text-white" href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                          </div>
+                      </div>
+                      <!-- Submit error message-->
+                      <!---->
+                      <!-- This is what your users will see when there is-->
+                      <!-- an error submitting the form-->
+                      <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </section>
+  <!-- Footer-->
+  <footer class="footer bg-light">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
+                  <ul class="list-inline mb-2">
+                      <li class="list-inline-item"><a href="#!">About</a></li>
+                      <li class="list-inline-item">⋅</li>
+                      <li class="list-inline-item"><a href="#!">Contact</a></li>
+                      <li class="list-inline-item">⋅</li>
+                      <li class="list-inline-item"><a href="#!">Terms of Use</a></li>
+                      <li class="list-inline-item">⋅</li>
+                      <li class="list-inline-item"><a href="#!">Privacy Policy</a></li>
+                  </ul>
+                  <p class="text-muted small mb-4 mb-lg-0">&copy; Your Website 2023. All Rights Reserved.</p>
+              </div>
+              <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
+                  <ul class="list-inline mb-0">
+                      <li class="list-inline-item me-4">
+                          <a href="#!"><i class="bi-facebook fs-3"></i></a>
+                      </li>
+                      <li class="list-inline-item me-4">
+                          <a href="#!"><i class="bi-twitter fs-3"></i></a>
+                      </li>
+                      <li class="list-inline-item">
+                          <a href="#!"><i class="bi-instagram fs-3"></i></a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+  </footer>
+  <!-- Bootstrap core JS-->
