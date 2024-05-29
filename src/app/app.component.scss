@@ -1,0 +1,22 @@
+.ng-select.custom ::ng-deep .ng-select-container  {
+  height: 47px;
+  border-radius: 8px;
+}
+
+.svg-custom {
+display: none;
+}
+
+@media (max-width: 768px) {
+  .custom-imagem{
+    display: none;
+  }
+  .custom-title {
+    font-size: 25px;
+  }
+
+  .svg-custom {
+    display: flex;
+    margin-bottom: 20px;
+    }
+}

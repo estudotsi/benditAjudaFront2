@@ -1,7 +1,7 @@
      <!-- Navigation-->
      <nav class="navbar navbar-light bg-light static-top">
       <div class="container">
-          <a class="navbar-brand" href="#!">Bendita Ajuda</a>
+          <a class="navbar-brand" href="#!"><img src="../assets/img/issuu.svg" height="60px" alt=""><span style="margin-left: 10px;">Bendita Ajuda</span></a>
           <a class="btn btn-primary" href="#signup">Sign Up</a>
       </div>
   </nav>
@@ -9,10 +9,15 @@
   <header class="masthead">
       <div class="container position-relative">
           <div class="row justify-content-center">
+            <img class="svg-custom" src="../assets/img/issuu.svg" height="50px" alt="">
               <div class="col-xl-6">
                   <div class="text-center text-white">
                       <!-- Page heading-->
-                      <h1 class="mb-5">O profissional que precisa está aqui !</h1>
+                      <h1 class="mb-5 custom-title">O profissional que precisa está aqui !</h1>
+                      <div class="img-fluid custom-imagem">
+                        <img class="imagem" src="../assets/img/trabalhadores.png" height="300px" width="600px" alt="">
+                      </div>
+
                       <!-- Signup form-->
                       <!-- * * * * * * * * * * * * * * *-->
                       <!-- * * SB Forms Contact Form * *-->
@@ -26,6 +31,7 @@
                           <div class="row">
                               <div class="col">
                                 <ng-select
+                                class="custom"
                                 [items]="servicos"
                                 bindLabel="nome"
                                 bindValue="id"
